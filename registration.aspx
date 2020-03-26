@@ -7,117 +7,89 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            text-decoration: underline;
-        }
-        .auto-style2 {
-            font-size: large;
-        }
-        .auto-style3 {
             width: 100%;
             border-style: solid;
             border-width: 1px;
         }
-        .auto-style4 {
-            width: 105px;
+        .auto-style2 {
+            width: 159px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="color: #009999; text-align: left; height: 36px; background-color: #CCFF99">
+    <div>
     
-        <strong><em><span class="auto-style1"><span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BUS PASS SYSTEM</span></span><br class="auto-style1" />
-        </em></strong>
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-        <br />
-        <br />
+        <asp:Panel ID="Panel1" runat="server" Height="668px">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bus pass<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">Name:</td>
+                    <td>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">address:</td>
+                    <td>
+                        <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Bus stop:</td>
+                    <td>
+                        <asp:BulletedList ID="BulletedList1" runat="server">
+                            <asp:ListItem>wadi</asp:ListItem>
+                            <asp:ListItem>ravinagr</asp:ListItem>
+                            <asp:ListItem>buldi</asp:ListItem>
+                        </asp:BulletedList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Date:
+                        <asp:Label ID="Label1" runat="server" Text="reg.date"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Bus Type: </td>
+                    <td>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                            <asp:ListItem>AC</asp:ListItem>
+                            <asp:ListItem>Non-Ac</asp:ListItem>
+                        </asp:CheckBoxList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Gender:</td>
+                    <td>
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+                            <asp:ListItem>Male</asp:ListItem>
+                            <asp:ListItem>Female</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="register" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+                        &nbsp;
+                        <asp:Label ID="Label2" runat="server" Text="Details:"></asp:Label>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
     
     </div>
-        <table class="auto-style3">
-            <tr>
-                <td class="auto-style4">Name:</td>
-                <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">Address:</td>
-                <td>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">Mobile</td>
-                <td>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">country:</td>
-                <td>
-                    <asp:CheckBox ID="CheckBox1" runat="server" Text="india" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">city:</td>
-                <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
-                        <asp:ListItem>Nagpur</asp:ListItem>
-                        <asp:ListItem>Amravati</asp:ListItem>
-                        <asp:ListItem>Mumbai</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">Source:</td>
-                <td>
-                    <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True">
-                        <asp:ListItem>Wadi</asp:ListItem>
-                        <asp:ListItem>Campus Square</asp:ListItem>
-                        <asp:ListItem>RaviNagar</asp:ListItem>
-                        <asp:ListItem>Bhole petrolpump</asp:ListItem>
-                        <asp:ListItem>Buldi</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">Destination:</td>
-                <td>
-                    <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True">
-                        <asp:ListItem>CampusSquare</asp:ListItem>
-                        <asp:ListItem>Ravinagar</asp:ListItem>
-                        <asp:ListItem>Bhole</asp:ListItem>
-                        <asp:ListItem>Buldi</asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style4">PaymentMode: </td>
-                <td>
-                    <asp:RadioButton ID="RadioButton2" runat="server" GroupName="pay" Text="Cash" />
-&nbsp;
-                    <asp:RadioButton ID="RadioButton3" runat="server" GroupName="pay" OnCheckedChanged="RadioButton3_CheckedChanged" Text="online" />
-&nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="OK" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-&nbsp;&nbsp;&nbsp;
-                    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="Label1" runat="server" Text="status"></asp:Label>
-                    <br />
-                    <br />
-                    <br />
-                </td>
-            </tr>
-        </table>
     </form>
 </body>
 </html>
