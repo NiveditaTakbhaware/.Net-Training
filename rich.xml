@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>ASPdotNET_logo.jpg</ImageUrl>
+    <Impression>100</Impression>
+  </Ad>
+<Ad>
+    <ImageUrl>img8.jpg</ImageUrl>
+    <Impression>100</Impression>
+  </Ad>
+<Ad>
+    <ImageUrl>WelcomeScan.jpg</ImageUrl>
+    <Impression>100</Impression>
+  </Ad>
+</Advertisements>
