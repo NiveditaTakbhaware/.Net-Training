@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<script language="javascript">
+function table()
+{
+var num=parseInt(document.getElementById("n1").value);
+var i=1; 
+var res=1;
+var d=document.getElementById("d1");
+d.innerHTML="";
+  do
+  {
+     res=num*i;
+     d.innerHTML+="<br>"+num + "*" + i + "=" +res;
+     i++; 
+  }while(i<=10);
+}
+</script>
+
+  enter number:<input type=text id="n1" />
+  <br>
+  <input type=button onclick="table();" value="show"/>
+<hr>
+<div id="d1">
+  result:
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+function table()
+{ 
+var num=document.getElementById("n1").value;
+var i,res;
+var d=document.getElementById("d1");
+d.innerHTML="";
+var s1=document.getElementById("s");
+s1.innerHTML="";
+s1.innerHTML+="span element<br>";
+for(i=1;i<=10;i++) 
+  {
+   res=num*i;
+   s1.innerHTML+="<br>"+num+"*"+i+"="+res;
+  }
+}
+</script>
+enter number:<input type=text id="n1" />
+<br>
+<input type=button onclick="table();" value="show"/>
+<hr>
+<div id ="d1">result:</div>
+<hr>
+<span id="s">span result</span>
+</body>
+</html>
