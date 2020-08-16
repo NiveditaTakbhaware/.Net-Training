@@ -16,7 +16,7 @@ namespace MVCstudentRegistration
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "stregistration", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "studentController", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

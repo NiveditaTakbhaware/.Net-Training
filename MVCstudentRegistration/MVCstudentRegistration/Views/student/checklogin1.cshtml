@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MVCstudentRegistration.Models.stregistration>
+
+@{
+    ViewBag.Title = "checklogin1";
+}
+
+<h2>checklogin1</h2>
+
+@{
+    var flag = false;
+}
+@foreach (var item in Model)
+{
+
+    var eml = item.email;
+    var pwd = item.password;
+    if (@eml == ViewBag.email && @pwd == ViewBag.pwd)
+    {
+        flag = true;
+        if (@flag == true)
+        {
+            <p align="center" style="color:forestgreen;font-size:x-large"> MKPLACEMENTS  </p>
+            <p align="right" style="color:forestgreen;font-size:x-large"> Welcome User : @ViewBag.email  </p>
+            <hr />
+            <p align="left" style="color:red;font-size:medium"> Profile  </p>
+            <hr />
+            @*<table class="table">
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fisrtname)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.middlename)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lastname)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mobile)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.gender)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.address)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.course)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.stream)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { eml = item.email })
+                        </td>
+                    </tr>
+
+                </table>
+            *@
+        }
+    }
+    else
+    {
+        <p align="center" style="color:red;font-size:small"> Invalid login credentials, try again! </p>
+        <hr />
+    }
+}
+

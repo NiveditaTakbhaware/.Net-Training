@@ -21,8 +21,14 @@ namespace MVCstudentRegistration.Models
         //insert query
         public string insert(stregistration rg)
         {
+            /*string cr = string.Empty;
+            foreach (var k in rg.course)
+            {
+                cr = cr + " " + k.ToString();
+            }*/
             con.Open();
-            string qr = "insert into MVCstReg values('" + rg.fisrtname + "','" + rg.middlename + "','" + rg.lastname + "','" + rg.email + "','" + rg.mobile + "','" + rg.gender + "','" + rg.address + "','" + rg.course + "','" + rg.stream + "','" + rg.password + "','" + rg.photo + "')";
+            // string qr = "insert into MVCstReg values('" + rg.fisrtname + "','" + rg.middlename + "','" + rg.lastname + "','" + rg.email + "','" + rg.mobile + "','" + rg.gender + "','" + rg.address + "','" + rg.stream + "','" + rg.password + "')";
+            string qr = "insert into MVCstReg values('" + rg.fisrtname + "','" + rg.middlename + "','" + rg.lastname + "','" + rg.email + "','" + rg.mobile + "','" + rg.gender + "','" + rg.address + "','" + rg.course + "','" + rg.stream + "','" + rg.password + "')";
             SqlCommand cmd = new SqlCommand(qr,con);
           int i=Convert.ToInt32(cmd.ExecuteNonQuery());
             con.Close();
@@ -38,10 +44,10 @@ namespace MVCstudentRegistration.Models
         }
 
         //update query
-        public string update(stregistration rg)
+        public string update(int id,stregistration rg)
         {
             con.Open();
-            string qr = "update  MVCstReg set fisrtname='"+rg.fisrtname+ "', middlename='"+rg.middlename+ "', lastname='"+rg.lastname+"', mobile='"+rg.mobile+"', address='"+rg.address+"', password='"+rg.password+"' where email= '"+rg.email+"'";
+            string qr = "update  MVCstReg set fisrtname='"+rg.fisrtname+ "', middlename='"+rg.middlename+ "', lastname='"+rg.lastname+"', mobile='"+rg.mobile+"', address='"+rg.address+"', password='"+rg.password+ "' where Id= " + id+"";
             SqlCommand cmd = new SqlCommand(qr,con);
            int i=Convert.ToInt32(cmd.ExecuteNonQuery());
             con.Close();
@@ -78,7 +84,7 @@ namespace MVCstudentRegistration.Models
         {
             
             List<stregistration> srg = new List<stregistration>();
-            string qr = "select * from MVCstReg";
+            string qr = "select Id,fisrtname,middlename,lastname,email,mobile,gender,address,course,stream,password from MVCstReg";
             SqlCommand cmd = new SqlCommand(qr,con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -98,14 +104,24 @@ namespace MVCstudentRegistration.Models
                     mobile =Convert.ToString(dr["mobile"]),
                     gender = Convert.ToString(dr["gender"]),
                     address =Convert.ToString(dr["address"]),
-                    course = Convert.ToString(dr["course"]),                   
+                    course = Convert.ToString(dr["course"]),
                     stream = Convert.ToString(dr["stream"]),
                     password = Convert.ToString(dr["password"]),
-                    photo = Convert.ToString(dr["photo"]),
+                    //photo = Convert.ToString(dr["photo"]),
 
                 }) ;
             }
             return srg;
+        }
+
+        //dashboard
+        public void dash(string eml,string pwd)
+        {
+            con.Open();
+            string qr = "select * from MVCstReg where email='"+eml+"' and password='"+pwd+"'";
+            SqlCommand cmd = new SqlCommand(qr,con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

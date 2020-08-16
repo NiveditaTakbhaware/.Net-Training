@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Deployment.Internal;
 using System.Linq;
+using System.Net.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
@@ -16,9 +17,9 @@ namespace MVCstudentRegistration.Controllers
        
         public ActionResult Index()
         {
-            ViewBag.stlist = "students list";
+            ViewBag.msg = "students list";
             DBhandler d = new DBhandler();
-            ModelState.Clear();
+            //ModelState.Clear();
             return View(d.stdlist());
         }
 
@@ -31,18 +32,22 @@ namespace MVCstudentRegistration.Controllers
         }
         [HttpPost]
         public ActionResult create(stregistration rg)
-        {         
+        {
+            //string msg = string.Empty;
               if(ModelState.IsValid)
                 {
+                
                     DBhandler d = new DBhandler();
                     string b =d.insert(rg);
                     if(b== "inserted")
                     {
-                        ViewBag.mesg = "data inserted";
+
+                    ViewBag.msg = "registration done!";
                         ModelState.Clear();
                     }
                 }
-                return View();         
+          
+            return View();
         }
 
         //update
@@ -60,10 +65,10 @@ namespace MVCstudentRegistration.Controllers
             if (ModelState.IsValid)
             {
                 DBhandler d = new DBhandler();
-                string b = d.update(rg);
+                string b = d.update(id,rg);
                 if (b == "updated")
                 {
-                    ViewBag.mesg = "data updated";
+                    ViewBag.msg = "data updated";
                     ModelState.Clear();
                 }
             }
@@ -90,7 +95,7 @@ namespace MVCstudentRegistration.Controllers
                     DBhandler d = new DBhandler();
                     if (d.Delete(em))
                     {
-                        ViewBag.AlertMsg = "Item Deleted Successfully";
+                        ViewBag.msg = "Item Deleted Successfully";
                     }
                     return RedirectToAction("Index");
                 }
@@ -100,12 +105,39 @@ namespace MVCstudentRegistration.Controllers
                 }
         }
 
-        
-        public ActionResult Alldetails(int id)
+
+        /*public ActionResult Alldetails(int id)
         {
             DBhandler d = new DBhandler();
 
             return View(d.stdlist().Find(m=>m.Id==id));
+        }*/
+        [HttpGet]
+        public ActionResult checklogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult checklogin1(string em,string pas)
+        {
+            ViewBag.email = em;
+            ViewBag.pwd = pas;
+            DBhandler d = new DBhandler();
+            d.dash(em, pas);
+            ModelState.Clear();
+            return View();
+           
+        }
+        [HttpPost]
+        public ActionResult login(string em, string pas)
+        {
+            ViewBag.email = em;
+            ViewBag.pwd = pas;
+            DBhandler d = new DBhandler();
+            d.dash(em, pas);
+            ModelState.Clear();
+            return View();
+
         }
 
     }

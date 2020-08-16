@@ -67,14 +67,14 @@
             @Html.DisplayFor(model => model.address)
         </dd>
 
-        <dt>
+       <dt>
             @Html.DisplayNameFor(model => model.course)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.course)
         </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.stream)
         </dt>
@@ -91,17 +91,14 @@
             @Html.DisplayFor(model => model.password)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.photo)
-        </dd>
 
     </dl>
+    <div>
+        @ViewBag.msg
+    </div>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

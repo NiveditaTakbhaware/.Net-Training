@@ -8,7 +8,11 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("login", "checklogin")
 </p>
+<div>
+    @ViewBag.msg
+</div>
 <table class="table">
     <tr>
         <th>
@@ -41,12 +45,20 @@
         <th>
             @Html.DisplayNameFor(model => model.stream)
         </th>
+        @* <th>
+           @Html.DisplayNameFor(model => model.java)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.dotnet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.python)
+        </th>
+        *@
         <th>
             @Html.DisplayNameFor(model => model.password)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.photo)
-        </th>
+
         <th></th>
     </tr>
 
@@ -82,15 +94,33 @@
     <td>
         @Html.DisplayFor(modelItem => item.stream)
     </td>
+    @*<td>
+            @Html.RadioButtonFor(modelItem => item.stream, "MCA")
+        </td>
+        <td>
+            @Html.RadioButtonFor(modelItem => item.stream, "MSC")
+        </td>
+        <td>
+            @Html.RadioButtonFor(modelItem => item.stream, "BE")
+        </td>
+    *@
+    @*<td>
+            @Html.CheckBoxFor(modelItem => item.java,false)
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem=>item.dotnet,false)
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem=>item.python,false)
+        </td>
+    *@
     <td>
         @Html.DisplayFor(modelItem => item.password)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.photo)
-    </td>
+
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @*  @Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
         @Html.ActionLink("Delete", "Delete", new { em = item.email })
     </td>
 </tr>
