@@ -2,7 +2,112 @@
 @{
     ViewBag.Title = "login";
 }
-
+@ViewData["id"]
+@ViewBag.email
 <h2>login</h2>
+  <p align="center" style="color:forestgreen;font-size:x-large"> MKPLACEMENTS  </p>
+  <p align="right" style="color:forestgreen;font-size:x-large"> Welcome User:@ViewData["id"]  </p>
+ <hr />
+  <p align="left" style="color:red;font-size:medium"> Profile  </p>
+  <hr />
+  <table class="table">
+      <tr>
+          <td>
+              Id:-
+          </td>
+          <td>
+              @ViewData["id"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              first name:-
+          </td>
+          <td>
+              @ViewData["fname"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              middle name:-
+          </td>
+          <td>
+              @ViewData["mname"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              last name:-
+          </td>
+          <td>
+              @ViewData["lname"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              email id:-
+          </td>
+          <td>
+              @ViewData["eml"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              mobile number:-
+          </td>
+          <td>
+              @ViewData["mob"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              gender:-
+          </td>
+          <td>
+              @ViewData["gen"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              address:-
+          </td>
+          <td>
+              @ViewData["add"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              course:-
+          </td>
+          <td>
+              @ViewData["cr"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              stream:-
+          </td>
+          <td>
+              @ViewData["str"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              password:-
+          </td>
+          <td>
+              @ViewData["ps"]
+          </td>
+      </tr>
+      <tr>
+          <td>
+              @Html.ActionLink("Index", "Index") |
+              @Html.ActionLink("Change Password", "changepwd") |
+              @Html.ActionLink("Logout", "Index")
 
+              @*@Html.ActionLink("Delete", "Delete", new { eml = item.email })*@
+          </td>
+      </tr>
 
+  </table>
+       

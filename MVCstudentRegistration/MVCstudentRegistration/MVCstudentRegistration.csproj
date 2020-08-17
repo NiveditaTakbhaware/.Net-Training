@@ -172,6 +172,8 @@
     <Content Include="Views\student\checklogin.cshtml" />
     <Content Include="Views\student\checklogin1.cshtml" />
     <Content Include="Views\student\login.cshtml" />
+    <Content Include="Views\student\changepwd.cshtml" />
+    <Content Include="Views\student\pwd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

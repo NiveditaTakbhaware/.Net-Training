@@ -8,7 +8,7 @@ using System.Web.UI.HtmlControls;
 using System.Net.Http.Headers;
 using WebGrease.Css.Ast.Selectors;
 using System.Data;
-
+using System.IO;
 namespace MVCstudentRegistration.Models
 {
     public class DBhandler
@@ -26,9 +26,19 @@ namespace MVCstudentRegistration.Models
             {
                 cr = cr + " " + k.ToString();
             }*/
+            byte[] bytes = null;
+
+
+            Stream fs = rg.img.InputStream;
+
+            BinaryReader br = new BinaryReader(fs);
+
+            bytes = br.ReadBytes((Int32)fs.Length);
+
+
             con.Open();
             // string qr = "insert into MVCstReg values('" + rg.fisrtname + "','" + rg.middlename + "','" + rg.lastname + "','" + rg.email + "','" + rg.mobile + "','" + rg.gender + "','" + rg.address + "','" + rg.stream + "','" + rg.password + "')";
-            string qr = "insert into MVCstReg values('" + rg.fisrtname + "','" + rg.middlename + "','" + rg.lastname + "','" + rg.email + "','" + rg.mobile + "','" + rg.gender + "','" + rg.address + "','" + rg.course + "','" + rg.stream + "','" + rg.password + "')";
+            string qr = "insert into MVCstReg values('" + rg.fisrtname + "','" + rg.middlename + "','" + rg.lastname + "','" + rg.email + "','" + rg.mobile + "','" + rg.gender + "','" + rg.address + "','" + rg.course + "','" + rg.stream + "','" + rg.password + "','" + rg.imagename + "','" + bytes + "')";
             SqlCommand cmd = new SqlCommand(qr,con);
           int i=Convert.ToInt32(cmd.ExecuteNonQuery());
             con.Close();
@@ -41,6 +51,7 @@ namespace MVCstudentRegistration.Models
             {
                 return "not inserted";
             }
+            
         }
 
         //update query
@@ -84,7 +95,7 @@ namespace MVCstudentRegistration.Models
         {
             
             List<stregistration> srg = new List<stregistration>();
-            string qr = "select Id,fisrtname,middlename,lastname,email,mobile,gender,address,course,stream,password from MVCstReg";
+            string qr = "select Id,fisrtname,middlename,lastname,email,mobile,gender,address,course,stream,password,imagename,img from MVCstReg";
             SqlCommand cmd = new SqlCommand(qr,con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -107,6 +118,8 @@ namespace MVCstudentRegistration.Models
                     course = Convert.ToString(dr["course"]),
                     stream = Convert.ToString(dr["stream"]),
                     password = Convert.ToString(dr["password"]),
+                    imagename = Convert.ToString(dr["imagename"]),
+                    //img = Convert dr["img"]
                     //photo = Convert.ToString(dr["photo"]),
 
                 }) ;
@@ -115,13 +128,30 @@ namespace MVCstudentRegistration.Models
         }
 
         //dashboard
-        public void dash(string eml,string pwd)
+        public DataSet dash(string eml,string pwd)
+        {
+            //con.Open();
+            string qr = "select * from MVCstReg where email='"+eml+"' and password='"+pwd+"'";
+            SqlCommand cmd = new SqlCommand(qr,con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            con.Open();
+            da.Fill(dt,"info");
+            con.Close();
+            return dt;
+           // cmd.ExecuteNonQuery();
+            //con.Close();
+        }
+
+        //change password
+        public string changepassword(string pa,string em)
         {
             con.Open();
-            string qr = "select * from MVCstReg where email='"+eml+"' and password='"+pwd+"'";
+            string qr = "update MVCstReg set password='"+pa+"' where email='"+em+"'";
             SqlCommand cmd = new SqlCommand(qr,con);
             cmd.ExecuteNonQuery();
             con.Close();
+            return "password changed";
         }
     }
 }

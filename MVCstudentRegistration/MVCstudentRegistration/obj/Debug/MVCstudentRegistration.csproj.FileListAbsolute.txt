@@ -76,4 +76,3 @@ E:\NiviC#programs\MKRejoinClass1july\MVCstudentRegistration\MVCstudentRegistrati
 E:\NiviC#programs\MKRejoinClass1july\MVCstudentRegistration\MVCstudentRegistration\obj\Debug\MVCstudentRegistration.csproj.CopyComplete
 E:\NiviC#programs\MKRejoinClass1july\MVCstudentRegistration\MVCstudentRegistration\obj\Debug\MVCstudentRegistration.dll
 E:\NiviC#programs\MKRejoinClass1july\MVCstudentRegistration\MVCstudentRegistration\obj\Debug\MVCstudentRegistration.pdb
-E:\NiviC#programs\MKRejoinClass1july\MVCstudentRegistration\MVCstudentRegistration\obj\Debug\MVCstudentRegistration.csprojAssemblyReference.cache

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Permissions;
 
 namespace MVCstudentRegistration.Models
 {
@@ -52,7 +53,8 @@ namespace MVCstudentRegistration.Models
         [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",ErrorMessage ="password must contains one uppercase,lowercase,number and special character")]
         public string password { get; set; }
        // public string Course { get; set; }
-       
+       public string imagename { get; set; }
+       public HttpPostedFileBase img { get;set; }
     }
  
 
