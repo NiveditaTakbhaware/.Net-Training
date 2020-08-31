@@ -5,6 +5,7 @@ using System.Web;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
+using System.Data;
 
 namespace MachineRound3NIVI
 {
@@ -70,6 +71,34 @@ namespace MachineRound3NIVI
             int age = DateTime.Now.Subtract(db).Days;
             age = age / 365;
             return age;
+        }
+
+        public string  userlogin(string email,string pwd)
+        {
+            string res = null;
+            con.Open();
+            string q = "select count(*) from niviTable where email='"+email+"' and password='"+pwd+"'";
+            SqlCommand cmd = new SqlCommand(q,con);
+            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            if(i==1)
+            {
+                res = "exist";
+            }
+            else
+            {
+                res = "not";
+            }
+            return res;
+
+        }
+        public DataSet profile(string email)
+        {
+            string q = "select id,firstname,middlename,lastname,mobile,email,gender,dateOfbirth,photo from niviTable where email='" + email + "'";
+            SqlCommand cmd = new SqlCommand(q,con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
         }
 
     }

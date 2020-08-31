@@ -86,7 +86,7 @@
           <tr>
             <td class="auto-style1"><span class="auto-style6">*</span>Password:-</td>
             <td>
-                <asp:TextBox ID="txtpwd" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txtpwd" runat="server"></asp:TextBox>
               </td>
            
         </tr>

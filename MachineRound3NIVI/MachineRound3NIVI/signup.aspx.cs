@@ -66,10 +66,13 @@ namespace MachineRound3NIVI
             }
             BinaryReader br = new BinaryReader(FileUploadphoto.PostedFile.InputStream);
               byte[] photo = br.ReadBytes(FileUploadphoto.PostedFile.ContentLength);
-            Imagephoto.ImageUrl = "~/photo/" + Path.GetFileName(FileUploadphoto.FileName);
+            //Imagephoto.ImageUrl = "~/photo/" + Path.GetFileName(FileUploadphoto.FileName);
+            string base64String = Convert.ToBase64String(photo, 0, photo.Length);
+            Imagephoto.ImageUrl = "data:image/jpg;base64," + base64String;
 
-           
             string msg = d.insert(fname,mname,lname,mobile,email,pwd,gender,dob,age,caddress,paddress,experience,department,profile,knowledge,photo);
+            Response.Write(txtpwd.Text);
+            Response.Write(pwd);
             ScriptManager.RegisterClientScriptBlock(this,this.GetType(),"Test",msg,true);
         }
 
